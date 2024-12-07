@@ -17,6 +17,7 @@ const util = require('util')
 const { sms,downloadMediaMessage } = require('./lib/msg')
 const axios = require('axios')
 const { File } = require('megajs')
+const prefix = '.'
 
 const ownerNumber = ['923001286123']
 
@@ -31,7 +32,13 @@ fs.writeFile(__dirname + '/auth_info_baileys/creds.json', data, () => {
 console.log("Session downloaded âœ…")
 })})}
 
-//=============================================
+
+const express = require("express");
+const app = express();
+const port = process.env.PORT || 8000;
+
+
+//=======================================
 
 async function connectToWA() {
 console.log("Connecting wa bot ðŸ§¬...");
@@ -41,7 +48,7 @@ var { version } = await fetchLatestBaileysVersion()
 const conn = makeWASocket({
         logger: P({ level: 'silent' }),
         printQRInTerminal: false,
-        browser: Browsers.macOS("Firefox"),
+        browser: Browsers.macOS("Safari"),
         syncFullHistory: true,
         auth: state,
         version
@@ -63,13 +70,13 @@ require("./plugins/" + plugin);
 console.log('Plugins installed successful âœ…')
 console.log('Bot connected to whatsapp âœ…')
 
-let up = `Wa-BOT connected successful âœ…\n\nPREFIX: ${prefix}`;
+let up = `MUEED-MD connected successful âœ…\n\nPREFIX: ${.}`;
 
 conn.sendMessage(ownerNumber + "@s.whatsapp.net", { image: { url: `https://telegra.ph/file/900435c6d3157c98c3c88.jpg` }, caption: up })
 
 }
 })
-conn.ev.on('creds.update', saveCreds)
+com.ev.on('creds.update', saveCreds)
 
 conn.ev.on('messages.upsert', async(mek) => {
 mek = mek.messages[0]
